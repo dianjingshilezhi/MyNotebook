@@ -26,7 +26,7 @@ client:	iperf -c server-ip  -p server-port -t 60 -b 300M
 
 #### 5：配置删除网络代理
 
-/etc/profile
+ /etc/profile
 
 /etc/environment
 

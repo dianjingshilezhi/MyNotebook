@@ -4,7 +4,7 @@
 cd ~/etps/openstack/images
 
 sudo virt-install \
---virt-type kvm \
+--virt-type kvm \dcd 
 --name vm \
 --ram 2048 \
 --vcpus 1 \
@@ -77,3 +77,49 @@ openstack image create \
 ubuntu18.1.1
 ```
 
+下载镜像
+
+1 进入opensttack 服务器
+
+ssh test@192.168.31.20
+
+2 列出所有镜像
+
+glance image-list
+
+![img](vm-repackage.assets/20200715115614859.png)
+
+3 下载
+
+glance image-download --file ./kali_2020.qcow2 696af397-687a-4236-8be3-9773fa441963
+
+
+
+window
+
+转换镜像格式。
+
+1. 在“cmd”窗口输入如下命令切换文件目录，以安装目录为“D:\Program Files\qemu”为例。
+
+   **d:**
+
+   **cd** **D:\qemu**
+
+1. 执行如下命令转换镜像文件格式，以转换vmdk格式为qcow2格式的镜像为例。
+
+   **qemu-img** **convert** **-p** **-f** **vmdk** **-O** **qcow2** **centos6.9.vmdk** **centos6.9.qcow2**
+
+   上述命令中各参数对应的说明如下：
+
+   - -p：表示镜像转换的进度。
+   - -f后面为源镜像格式。
+   - -O（必须是大写）后面的参数由如下3个部分组成：转换出来的镜像格式 + 源镜像文件名称 + 目标文件名称。
+
+   转换完成后，目标文件会出现在源镜像文件所在的目录下。
+
+   回显信息如下所示：
+
+   ```
+   # qemu-img convert -p -f vmdk -O qcow2 centos6.9.vmdk centos6.9.qcow2
+       (100.00/100%)
+   ```

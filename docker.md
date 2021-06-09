@@ -182,4 +182,4 @@ java                latest              d23bdf5b1b1b        2 years ago         
 
 docker pull neptune15/host_iot:v1
 
- sudo docker build -t neptune15/host_iot:v1 .
+ sudo docker build -t neptune15/host_iot:v1 .doc
